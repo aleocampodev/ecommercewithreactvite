@@ -1,10 +1,11 @@
 import React from 'react'
+import Layout from '../../components/Layout'
 
 const MyAccount = () => {
   return (
-    <div>
+    <Layout>
       Hola myAccount
-    </div>
+    </Layout>
   )
 }
 

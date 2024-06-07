@@ -1,12 +1,13 @@
 import React from 'react'
+import Layout from '../../components/Layout'
 
 
 const SignIn = () => {
   return (
-    <div>
+    <Layout>
       <Home/>
       hola sigin
-    </div>
+    </Layout>
   )
 }
 
