@@ -6,9 +6,9 @@ import { IoCart } from "react-icons/io5";
 const Navbar = () => {
   const [itemsCart, setItemsCart]= useState(0)
   const activeStyle = 'underline underline-offset-4'
-  const containernavbar = 'flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light'
+  const containernavbar = 'flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light top-0'
   return (
-    <nav className="containernavbar">
+    <nav className={containernavbar}>
       <ul className="flex items-center gap-3">
         <li className="font-semibold">
           <NavLink 
