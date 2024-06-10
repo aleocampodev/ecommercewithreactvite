@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 import { FaPlus } from 'react-icons/fa6';
 import HeadPhones from '@images/headphones.jpeg'
 
-const Card = () => {
+const Card = (props) => {
+  const {data}= props
   return (
     <div className="bg-white cursor-pointer w-56 h-60">
       <figure className="relative mb-2 w-full h-4/5">
@@ -16,6 +18,10 @@ const Card = () => {
       </p>
     </div>
   )
+}
+
+Card.PropTypes = {
+  data: PropTypes.object.isRequired
 }
 
 export default Card
