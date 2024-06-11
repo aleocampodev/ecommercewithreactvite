@@ -11,6 +11,8 @@ const Home = () => {
       .then(response => response.json())
       .then(data => setProducts(data))
   },[])
+
+  console.log(products,'gh')
   return (
     <Layout>
       Hola home
