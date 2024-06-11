@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { ShoppingCartContext } from '../../context';
 import { NavLink } from 'react-router-dom'
 
 import { IoCart } from "react-icons/io5";
 
 const Navbar = () => {
-  const [itemsCart, setItemsCart]= useState(0)
+  const {count}= useContext(ShoppingCartContext)
   const activeStyle = 'underline underline-offset-4'
   const containernavbar = 'flex justify-between items-center fixed z-10 w-full py-5 px-8 text-sm font-light top-0'
   return (
@@ -97,7 +98,7 @@ const Navbar = () => {
         </li>
         <li className="flex">
           <IoCart size={30}/>
-          {itemsCart}
+          {count}
         </li>
       </ul>
     </nav>
