@@ -1,0 +1,11 @@
+.product-detail{
+    display: flex;
+    flex-direction:column;
+    position:fixed;
+    background-color: white;
+    border-color: black;
+    right:0;
+    top:68px;
+    width:360px;
+    height:calc(100vh - 68px);
+}
