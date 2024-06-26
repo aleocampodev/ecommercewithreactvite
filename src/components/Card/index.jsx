@@ -14,14 +14,10 @@ const Card = (props) => {
     setProductShow,
     cartProducts,
     setCartProducts,
-    openCheckoutSideMenu,
-    isCheckoutSideMenuOpen,
-    closeCheckoutSideMenu,
-    isProductDetailOpen
+    openCheckoutSideMenu
   } = useContext(ShoppingCartContext);
 
   const showProduct = (productDetail) => {
-    console.log('abrir detail')
     openProductDetail();
     setProductShow(productDetail);
   };
@@ -35,11 +31,6 @@ const Card = (props) => {
     
   };
 
-useEffect(() => {
-  console.log(cartProducts)
-},[cartProducts])
-
-console.log(isCheckoutSideMenuOpen, 'sichecjou')
 
   return (
     <div

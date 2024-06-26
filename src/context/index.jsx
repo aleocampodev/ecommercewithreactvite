@@ -13,11 +13,8 @@ export const ShoppingCartProvider = ({ children }) => {
   const openProductDetail = () =>  setIsProductDetailOpen(true)
   const closeProductDetail = () => setIsProductDetailOpen(false)
   const openCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(true)
-  const closeCheckoutSideMenu = () => {
-    console.log('jk', isCheckoutSideMenuOpen)
-  
-    setIsCheckoutSideMenuOpen(false)
-  } 
+  const closeCheckoutSideMenu = () => setIsCheckoutSideMenuOpen(false)
+   
  
     
 
