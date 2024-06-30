@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useContext, useEffect } from "react";
 import PropTypes from "prop-types";
-import { FaPlus } from "react-icons/fa6";
+import { FaPlus, FaCheck } from "react-icons/fa6";
+
 import { ShoppingCartContext } from "../../context";
 
 const Card = (props) => {
@@ -25,11 +26,24 @@ const Card = (props) => {
   const addProductsToCart = (event, productData) => {
     event.stopPropagation()
     setCount(count + 1);
-    setCartProducts([...cartProducts, productData]);
+   
+      setCartProducts([...cartProducts, productData]);
+ 
+    
     openCheckoutSideMenu()
     closeProductDetail()
     
   };
+
+  const renderIcon = (id) => {
+    const isInCart = cartProducts.some(product => product.id === id)
+   
+    if(isInCart){
+      return <FaCheck className="absolute top-0 right-0 flex justify-center items-center bg-black text-white w-6 h6 m-2 p-1 cursor-pointer"/>
+    }else{
+      return <FaPlus className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h6 m-2 p-1 cursor-pointer"  onClick={(e) => addProductsToCart(e,data)}/>
+    }
+  }
 
 
   return (
@@ -46,10 +60,10 @@ const Card = (props) => {
           src={data?.image}
           alt={data?.title}
         />
-        <FaPlus
-          className="absolute top-0 right-0 flex justify-center items-center bg-white w-6 h6 m-2 p-1 cursor-pointer"
-          onClick={(e) => addProductsToCart(e,data)}
-        />
+        
+          {renderIcon(data.id)}
+      
+        
       </figure>
       <p className="flex justify-between">
         <span className="text-sm font-light">{data?.title}</span>
