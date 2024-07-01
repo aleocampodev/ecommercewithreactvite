@@ -5,7 +5,12 @@ import OrderCard from "../OrderCard/index";
 import './checkoutsidemenu.css'
 
 const CheckoutSideMenu = () => {
- const {isCheckoutSideMenuOpen, closeCheckoutSideMenu, cartProducts} = useContext(ShoppingCartContext)
+ const {isCheckoutSideMenuOpen, closeCheckoutSideMenu, cartProducts, setCartProducts} = useContext(ShoppingCartContext)
+
+ const handleDelete = (id) => {
+  const filteredProducts = cartProducts.filter(product => product.id !== id)
+  setCartProducts(filteredProducts)
+ }
 
   return (
     <aside className={`${ isCheckoutSideMenuOpen? 'flex': 'hidden'} checkout-side-menu`}>
@@ -22,6 +27,8 @@ const CheckoutSideMenu = () => {
               title={product.title} 
               imageUrl={product.image}
               price={product.price}
+              id={product.id}
+              handleDelete={handleDelete}
             />
           )
         })
