@@ -1,6 +1,7 @@
 import { useContext} from "react";
 import { MdClose } from "react-icons/md";
 import { ShoppingCartContext } from "../../context";
+import { totalPrice } from "../../utils";
 import OrderCard from "../OrderCard/index";
 import './checkoutsidemenu.css'
 
@@ -34,8 +35,14 @@ const CheckoutSideMenu = () => {
         })
       }
       </div>
-    
+      <div className="px-6 ">
+        <p className="flex justify-between items-center">
+          <span className="font-light">Total: $</span>
+          <span className="font-medium text-2xl">{totalPrice(cartProducts)}</span>
+        </p>
+      </div>
     </aside>
+    
   )
 }
 
