@@ -26,14 +26,12 @@ const Card = (props) => {
   const addProductsToCart = (event, productData) => {
     event.stopPropagation()
     setCount(count + 1);
-   
-      setCartProducts([...cartProducts, productData]);
- 
-    
+    setCartProducts([...cartProducts, productData]);
     openCheckoutSideMenu()
     closeProductDetail()
     
   };
+
 
   const renderIcon = (id) => {
     const isInCart = cartProducts.some(product => product.id === id)
