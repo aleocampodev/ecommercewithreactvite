@@ -14,7 +14,10 @@ const OrderCard = (props) => {
       </div>
       <div className="flex items-center gap-2">
         <p  className="text-lg font-medium" >{price}</p>
-        <MdClose className="h-6 w-6 text-black cursor-pointer" onClick={() => handleDelete(id)}/>
+        {
+          handleDelete && <MdClose className="h-6 w-6 text-black cursor-pointer" onClick={() => handleDelete(id)}/>
+        }
+        
       </div>
     </div>
   )
