@@ -1,13 +1,15 @@
-import { useContext} from "react";
+import { useState,useContext} from "react";
 import { Link } from "react-router-dom"
 import { MdClose } from "react-icons/md";
 import { ShoppingCartContext } from "../../context";
-import { totalPrice } from "../../utils";
+import { totalPrice, getCurrentDate } from "../../utils";
 import OrderCard from "../OrderCard/index";
 import './checkoutsidemenu.css'
 
 const CheckoutSideMenu = () => {
+  const [currentId, setCurrentId] = useState(1);
  const {isCheckoutSideMenuOpen, closeCheckoutSideMenu, cartProducts, setCartProducts, setOrder, order, setCount} = useContext(ShoppingCartContext)
+ console.log(order, 'oder')
 
  const handleDelete = (id) => {
   const filteredProducts = cartProducts.filter(product => product.id !== id)
@@ -16,7 +18,8 @@ const CheckoutSideMenu = () => {
 
  const handleCheckout = () => {
   const orderToAdd = {
-    date:'01.02.23',
+    id:currentId,
+    date:getCurrentDate(),
     products: cartProducts,
     totalProducts: cartProducts.length,
     totalPrice:totalPrice(cartProducts)
@@ -25,6 +28,7 @@ const CheckoutSideMenu = () => {
   setOrder([...order, orderToAdd])
   setCartProducts([])
   setCount(0)
+  setCurrentId(currentId + 1)
  }
 
   return (
